@@ -21,7 +21,7 @@ import nizekAccountant.logic.UserRepository.UserRepository;
  */
 public class ShowCheckRepository implements TableModel {
 
-    UserRepository userRepository = new USerRepository();
+    UserRepository userRepository = new UserRepository();
 
     public ShowCheckRepository() {
 

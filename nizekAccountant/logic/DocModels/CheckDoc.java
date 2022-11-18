@@ -29,6 +29,7 @@ public class CheckDoc {
         this.costumer = costumer;
         userID = costumer.getID();
         payee = costumer.getName();
+        isCashed = false;
     }
     public String getPayee() {
       return this.payee;

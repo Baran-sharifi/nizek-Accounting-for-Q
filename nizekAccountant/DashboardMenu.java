@@ -44,7 +44,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         landPage(dashboard);
         disableFilter();
         for(Costumer item: Manager.costumerList){
-             payeesComboBox.addItem((item).toString());
+             payeesComboBox.addItem(item.getName());
             }
         
         
@@ -238,9 +238,13 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         payeeCostAdd = new javax.swing.JTextField();
-        TimeCheckAdd = new javax.swing.JTextField();
-        isCashed = new javax.swing.JRadioButton();
+        TimeCheckAddDay = new javax.swing.JTextField();
+        isCashedBtn = new javax.swing.JRadioButton();
         payeesComboBox = new javax.swing.JComboBox<>();
+        TimeCheckAddYear = new javax.swing.JTextField();
+        TimeCheckAddMonth = new javax.swing.JTextField();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
         addCheckBack1 = new javax.swing.JButton();
         countCheck = new javax.swing.JLabel();
         stateChangePanel = new javax.swing.JPanel();
@@ -591,15 +595,17 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
-        TimeCheckAdd.addActionListener(new java.awt.event.ActionListener() {
+        TimeCheckAddDay.setBackground(new java.awt.Color(102, 102, 102));
+        TimeCheckAddDay.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        TimeCheckAddDay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TimeCheckAddActionPerformed(evt);
+                TimeCheckAddDayActionPerformed(evt);
             }
         });
 
-        isCashed.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
-        isCashed.setForeground(new java.awt.Color(255, 255, 255));
-        isCashed.setText("وصول شده است");
+        isCashedBtn.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        isCashedBtn.setForeground(new java.awt.Color(255, 255, 255));
+        isCashedBtn.setText("وصول شده است");
 
         payeesComboBox.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
         payeesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "افزودن شخص جدید", " ", " ", " ", " ", " " }));
@@ -609,6 +615,30 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        TimeCheckAddYear.setBackground(new java.awt.Color(102, 102, 102));
+        TimeCheckAddYear.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        TimeCheckAddYear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TimeCheckAddYearActionPerformed(evt);
+            }
+        });
+
+        TimeCheckAddMonth.setBackground(new java.awt.Color(102, 102, 102));
+        TimeCheckAddMonth.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        TimeCheckAddMonth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TimeCheckAddMonthActionPerformed(evt);
+            }
+        });
+
+        jLabel53.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel53.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel53.setText("/");
+
+        jLabel54.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel54.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel54.setText("/");
+
         javax.swing.GroupLayout addingCheckPanelLayout = new javax.swing.GroupLayout(addingCheckPanel);
         addingCheckPanel.setLayout(addingCheckPanelLayout);
         addingCheckPanelLayout.setHorizontalGroup(
@@ -617,12 +647,12 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(addingCheckPanelLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(discriptionCheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(addingCheckPanelLayout.createSequentialGroup()
-                                .addComponent(isCashed, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addComponent(payeeCostAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addingCheckPanelLayout.createSequentialGroup()
+                                .addComponent(isCashedBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
+                                .addComponent(discriptionCheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(payeeCostAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(addingCheckPanelLayout.createSequentialGroup()
                                 .addGap(35, 35, 35)
@@ -631,10 +661,18 @@ public class DashboardMenu extends javax.swing.JFrame {
                                 .addGap(57, 57, 57)
                                 .addComponent(jLabel18))))
                     .addGroup(addingCheckPanelLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(TimeCheckAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
-                        .addComponent(payeesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(TimeCheckAddYear, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TimeCheckAddMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TimeCheckAddDay, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(payeesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel17)))
                 .addGap(107, 107, 107))
@@ -647,23 +685,25 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addGroup(addingCheckPanelLayout.createSequentialGroup()
                         .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(payeesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TimeCheckAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TimeCheckAddDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TimeCheckAddYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TimeCheckAddMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel53)
+                            .addComponent(jLabel54))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(addingCheckPanelLayout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addingCheckPanelLayout.createSequentialGroup()
-                        .addComponent(payeeCostAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                        .addGap(32, 32, 32))
-                    .addGroup(addingCheckPanelLayout.createSequentialGroup()
-                        .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(isCashed)
-                            .addComponent(jLabel18))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jLabel18)
+                .addGap(1, 1, 1)
+                .addComponent(payeeCostAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(addingCheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(discriptionCheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19))
+                    .addComponent(jLabel19)
+                    .addGroup(addingCheckPanelLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(isCashedBtn)))
                 .addGap(47, 47, 47))
         );
 
@@ -697,15 +737,15 @@ public class DashboardMenu extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel29)))
                         .addContainerGap())
-                    .addComponent(addCheckScroll, javax.swing.GroupLayout.Alignment.TRAILING)))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addcheckPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addCheckBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(registerCheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addCheckBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(170, 170, 170))
+                    .addComponent(addCheckScroll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addcheckPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(addCheckBack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(registerCheck, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addCheckBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(170, 170, 170))))
         );
         addcheckPanelLayout.setVerticalGroup(
             addcheckPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -721,7 +761,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addComponent(addCheckBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(registerCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addCheckBack, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         stateChangePanel.setBackground(new java.awt.Color(102, 102, 102));
@@ -2404,9 +2444,9 @@ public class DashboardMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_payee3ActionPerformed
 
-    private void TimeCheckAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimeCheckAddActionPerformed
+    private void TimeCheckAddDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimeCheckAddDayActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TimeCheckAddActionPerformed
+    }//GEN-LAST:event_TimeCheckAddDayActionPerformed
 
     private void payeeCostAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payeeCostAddActionPerformed
         // TODO add your handling code here:
@@ -2517,16 +2557,18 @@ public class DashboardMenu extends javax.swing.JFrame {
     private void registerCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerCheckActionPerformed
 
 //get time of the system
-String CheckTime=TimeCheckAdd.getText();   
-String selectedPayee= payeesComboBox.getSelectedItem().toString();
-      boolean Cashed=isCashed.isSelected();
+      String selectedPayee= payeesComboBox.getSelectedItem().toString();
+      boolean Cashed=isCashedBtn.isSelected();
       String selected= payeesComboBox.getSelectedItem().toString();
-        String descriptionDoc = discriptionTextAdd.getText();
-        String costDoc = payeeCostAdd.getText();
+      String descriptionDoc = discriptionTextAdd.getText();
+      String costDoc = payeeCostAdd.getText();
+      int checkDay=Integer.parseInt(TimeCheckAddDay.getText());
+      int checkMonth=Integer.parseInt(TimeCheckAddMonth.getText());
+      int checkYear=Integer.parseInt(TimeCheckAddYear.getText());
         if (addCheckLogic.canSubmitCheck(selected, costDoc, descriptionDoc)) {
-//            Manager.addCheckDocument(new CheckDoc(costDoc,descriptionDoc,dateNizek,timeNizek,Cashed,
-//                    Costumer(new Costumer(selectedPayee,"","" ,"" ,"","",""));
-// addCheckLogic.passCheckToDatabase(payeeDoc, costDoc, discriptionDoc);
+            Manager.addCheckDocument(new CheckDoc(costDoc,descriptionDoc ,
+                    new DateNizek(checkDay,checkMonth,checkYear),new TimeNizek(),Cashed,
+                    Manager.costumerList.get(0)));
         } else {
             JOptionPane.showMessageDialog(addDocPanel, "فیلد های چک را صحیح وارد کنید",
                     "اطلاعات نامعتبر", JOptionPane.ERROR_MESSAGE);
@@ -2747,6 +2789,14 @@ String selectedPayee= payeesComboBox.getSelectedItem().toString();
        
     }//GEN-LAST:event_payeesComboBoxActionPerformed
 
+    private void TimeCheckAddYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimeCheckAddYearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TimeCheckAddYearActionPerformed
+
+    private void TimeCheckAddMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimeCheckAddMonthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TimeCheckAddMonthActionPerformed
+
     public void filterVisibelity(JRadioButton Rbtn) {
         costCheckList.setEnabled(costCheckRBtn.isSelected());
         peopleCheckList.setEnabled(payeeCheckRBtn.isSelected());
@@ -2867,7 +2917,9 @@ String selectedPayee= payeesComboBox.getSelectedItem().toString();
     private javax.swing.JRadioButton MonthlyDoc;
     private javax.swing.JButton ShowChecksbtn;
     private javax.swing.JButton ShowDocsbtn;
-    private javax.swing.JTextField TimeCheckAdd;
+    private javax.swing.JTextField TimeCheckAddDay;
+    private javax.swing.JTextField TimeCheckAddMonth;
+    private javax.swing.JTextField TimeCheckAddYear;
     private javax.swing.JRadioButton TimeCheckRBtn;
     private javax.swing.JRadioButton TimeDocRBtn;
     private javax.swing.JPanel addCategoryPanel;
@@ -2936,7 +2988,7 @@ String selectedPayee= payeesComboBox.getSelectedItem().toString();
     private javax.swing.JButton enterBtn;
     private javax.swing.ButtonGroup filters;
     private javax.swing.JButton groupDocSubmit;
-    private javax.swing.JRadioButton isCashed;
+    private javax.swing.JRadioButton isCashedBtn;
     private javax.swing.JToggleButton isCreditorToggle;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
@@ -2988,6 +3040,8 @@ String selectedPayee= payeesComboBox.getSelectedItem().toString();
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
