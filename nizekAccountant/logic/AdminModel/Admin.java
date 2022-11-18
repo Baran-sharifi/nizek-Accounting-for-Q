@@ -4,7 +4,7 @@ public class Admin {
     private String name;
     private String email;
     private String password;
-    private final String filePath = "DataBase/Admin/admin.csv";
+    private final String filePath = "C:\\csvProject\\admin.csv";
 
     public Admin(String name, String email, String password) {
         this.name = name;

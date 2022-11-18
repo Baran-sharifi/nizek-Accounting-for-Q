@@ -14,9 +14,9 @@ public class NormalDoc {
     private String payee;
 
     private int userID;
-    private final String filePath = "normalDoc.csv";
-    private final String isCreditorFilePath = "creditor.csv";
-    private final String notCreditorFilePath = "notCreditor.csv";
+    private final String filePath = "C:\\csvProject\\normalDoc.csv";
+    private final String isCreditorFilePath = "C:\\csvProject\\creditor.csv";
+    private final String notCreditorFilePath = "C:\\csvProject\\notCreditor.csv";
 
     public NormalDoc(String cost, String description, boolean isCreditor, DateNizek dateNizek, TimeNizek timeNizek, Costumer costumer) {
         this.cost = cost;

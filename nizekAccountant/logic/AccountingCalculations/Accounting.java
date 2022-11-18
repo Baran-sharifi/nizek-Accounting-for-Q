@@ -70,7 +70,7 @@ public class Accounting {
         List<Double> moneyList = new ArrayList<>();
         double result = 0;
         for (CheckDoc checkDoc: checkDocList) {
-            if (checkDoc.isCashed()) {
+            if (checkDoc.isCashedd()) {
                 moneyList.add(Converter.convertToDouble(checkDoc.getCost()));
             }
         }
@@ -84,7 +84,7 @@ public class Accounting {
         List<Double> moneyList = new ArrayList<>();
         double result = 0;
         for (CheckDoc checkDoc : checkDocList) {
-            if (!checkDoc.isCashed()) {
+            if (!checkDoc.isCashedd()) {
                 moneyList.add(Converter.convertToDouble(checkDoc.getCost()));
             }
         }

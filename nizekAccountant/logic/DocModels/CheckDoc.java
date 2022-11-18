@@ -7,15 +7,15 @@ import nizekAccountant.logic.Login.Costumer;
 
 public class CheckDoc {
     private Costumer costumer;
-    private String cost;
+    public String cost;
     private String description;
     private DateNizek dateNizek;
     private TimeNizek timeNizek;
-    private boolean isCashed;
-    private String payee;
-    private String filePath = "checkFile.csv";
-    private String cashedFilePath = "cashedCheck.csv";
-    private String notCashedFilePath = "notCashedCheck.csv";
+    public boolean isCashed;
+    public String payee;
+    private String filePath = "C:\\csvProject\\checkFile.csv";
+    private String cashedFilePath = "C:\\csvProject\\cashedCheck.csv";
+    private String notCashedFilePath = "C:\\csvProject\\notCashedCheck.csv";
 
     private final int userID;
 
@@ -48,7 +48,7 @@ public class CheckDoc {
         return userID;
     }
 
-    public boolean isCashed() {
+    public boolean isCashedd() {
         return isCashed;
     }
     
@@ -129,7 +129,7 @@ public class CheckDoc {
                 getUser().getName(),
                 getCost(),
                 getDescription(),
-                convertCashed(isCashed()),
+                convertCashed(isCashedd()),
                 getDate().toString(),
                 getTime().toString());
     }

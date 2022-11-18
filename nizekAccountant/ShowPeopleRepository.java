@@ -32,8 +32,9 @@ public class ShowPeopleRepository implements TableModel {
 
     @Override
     public int getRowCount() {
-       
-        return Manager.costumerList.size();
+      //         return 100;
+
+       return Manager.costumerList.size();
     }
 
     @Override
@@ -113,30 +114,30 @@ public class ShowPeopleRepository implements TableModel {
                 
                 List<String> names;
                 names = userRepository.readColumnWholeFile(0, new File(Manager.costumerList.get(rowIndex).getFilePath()));
-                return names.get(rowIndex);
+                return names.get(Manager.costumerList.size() + rowIndex);
             }
             case 1 -> {
                 List<String> ids;
                 ids = userRepository.readColumnWholeFile(1, new File(Manager.costumerList.get(rowIndex).getFilePath()));
-                return ids.get(rowIndex);            }
+                return ids.get(Manager.costumerList.size() +rowIndex);            }
             case 2 -> {
                 List<String> groups;
                 groups = userRepository.readColumnWholeFile(2, new File(Manager.costumerList.get(rowIndex).getFilePath()));
-                return groups.get(rowIndex);        }
+                return groups.get(Manager.costumerList.size() +rowIndex);        }
             case 3 -> {
                 List<String> address;
                 address = userRepository.readColumnWholeFile(3, new File(Manager.costumerList.get(rowIndex).getFilePath()));
-                return address.get(rowIndex);  
+                return address.get(Manager.costumerList.size() +rowIndex);  
             }
             case 4 -> {
                  List<String> phone;
                 phone = userRepository.readColumnWholeFile(4, new File(Manager.costumerList.get(rowIndex).getFilePath()));
-                return phone.get(rowIndex); 
+                return phone.get(Manager.costumerList.size() +rowIndex); 
             }
             case 5 -> {
                 List<String> email;
                 email = userRepository.readColumnWholeFile(5, new File(Manager.costumerList.get(rowIndex).getFilePath()));
-                return email.get(rowIndex); 
+                return email.get(Manager.costumerList.size() +rowIndex); 
             }
            
           

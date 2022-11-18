@@ -9,6 +9,8 @@ import nizekAccountant.logic.Login.Costumer;
 
 import java.io.*;
 import java.util.*;
+import nizekAccountant.logic.Login.GroupType;
+import nizekAccountant.logic.ModelManager.Manager;
 
 
 public class UserRepository implements Storeable {
@@ -320,7 +322,7 @@ public class UserRepository implements Storeable {
     }
     public void writeIFCashedToFile(CheckDoc checkDoc) {
         try {
-            if (checkDoc.isCashed()) {
+            if (checkDoc.isCashedd()) {
                 FileWriter fileWriter = new FileWriter(checkDoc.getCashedFilePath(), true);
                 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                 PrintWriter printWriter = new PrintWriter(bufferedWriter);
@@ -521,7 +523,7 @@ public class UserRepository implements Storeable {
 
         List<String> arrayDate = new ArrayList<>();
         for (CheckDoc checkDoc : checkDocList) {
-            if (!(checkDoc.isCashed())) {
+            if (!(checkDoc.isCashedd())) {
                 arrayDate.add(ConverterTime.convertToGregorian(checkDoc.getDate()));
             }
         }
@@ -531,10 +533,28 @@ public class UserRepository implements Storeable {
 
         List<Double> arrayCost = new ArrayList<>();
         for (CheckDoc checkDoc : checkDocList) {
-            if (!(checkDoc.isCashed())) {
+            if (!(checkDoc.isCashedd())) {
                 arrayCost.add(Converter.convertToDouble(checkDoc.getCost()));
             }
         }
         return arrayCost;
     }
+    public void readAndAddCostumer(File file) {
+        if (file.exists()) {
+     List<String> gottenFile = readWholeFile(file);
+     for (String model: gottenFile) {
+      String[] temp = model.split(",");
+      Manager.addCostumer(new Costumer(
+              temp[0].substring(1),
+              temp[1].trim(),
+              new GroupType(temp[2].trim()),
+              temp[3].trim(),
+              temp[4].trim(),
+              temp[5].trim()
+              
+       ));
+     }
+    } else {
+            return;
+        }}
 }
