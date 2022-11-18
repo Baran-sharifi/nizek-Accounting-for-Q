@@ -10,6 +10,7 @@ import nizekAccountant.logic.ModelManager.Manager;
 
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
+import nizekAccountant.logic.Login.GroupType;
 import nizekAccountant.logic.UserRepository.UserRepository;
 
 /**
@@ -17,6 +18,7 @@ import nizekAccountant.logic.UserRepository.UserRepository;
  * @author Lenovo
  */
 public class ShowPeopleRepository implements TableModel {
+
     UserRepository userRepository = new UserRepository();
 
     public ShowPeopleRepository() {
@@ -32,9 +34,9 @@ public class ShowPeopleRepository implements TableModel {
 
     @Override
     public int getRowCount() {
-      //         return 100;
+        //         return 100;
 
-       return Manager.costumerList.size();
+        return Manager.costumerList.size();
     }
 
     @Override
@@ -63,7 +65,6 @@ public class ShowPeopleRepository implements TableModel {
             case 5 -> {
 
                 return "ایمیل";
-                
 
             }
             default ->
@@ -73,11 +74,9 @@ public class ShowPeopleRepository implements TableModel {
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-      
-             
+
         return String.class;
     }                                                  // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    
 
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -110,42 +109,29 @@ public class ShowPeopleRepository implements TableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
-            case 0 -> {    
-                
-                List<String> names;
-                names = userRepository.readColumnWholeFile(0, new File(Manager.costumerList.get(rowIndex).getFilePath()));
-                return names.get(Manager.costumerList.size() + rowIndex);
+            case 0 -> {
+                return Manager.costumerList.get(rowIndex).getName();
+                //return names.get( rowIndex);
             }
             case 1 -> {
-                List<String> ids;
-                ids = userRepository.readColumnWholeFile(1, new File(Manager.costumerList.get(rowIndex).getFilePath()));
-                return ids.get(Manager.costumerList.size() +rowIndex);            }
+                return Manager.costumerList.get(rowIndex).getNationalID();
+//            return ids.get(rowIndex);    
+            }
             case 2 -> {
-                List<String> groups;
-                groups = userRepository.readColumnWholeFile(2, new File(Manager.costumerList.get(rowIndex).getFilePath()));
-                return groups.get(Manager.costumerList.size() +rowIndex);        }
+                return Manager.costumerList.get(rowIndex).getGroupType();
+
+                //  return groups.get(rowIndex);
+            }
             case 3 -> {
-                List<String> address;
-                address = userRepository.readColumnWholeFile(3, new File(Manager.costumerList.get(rowIndex).getFilePath()));
-                return address.get(Manager.costumerList.size() +rowIndex);  
+               return Manager.costumerList.get(rowIndex).getAddress();
             }
             case 4 -> {
-                 List<String> phone;
-                phone = userRepository.readColumnWholeFile(4, new File(Manager.costumerList.get(rowIndex).getFilePath()));
-                return phone.get(Manager.costumerList.size() +rowIndex); 
+                return Manager.costumerList.get(rowIndex).getPhone();
             }
             case 5 -> {
-                List<String> email;
-                email = userRepository.readColumnWholeFile(5, new File(Manager.costumerList.get(rowIndex).getFilePath()));
-                return email.get(Manager.costumerList.size() +rowIndex); 
+                return Manager.costumerList.get(rowIndex).getEmail();
             }
-           
-          
-            
-            
-            
-            
-            
+
             default ->
                 throw new IndexOutOfBoundsException(String.format("Column index not exist. (%d)", columnIndex));
         }
@@ -164,7 +150,7 @@ public class ShowPeopleRepository implements TableModel {
                 Manager.costumerList.get(rowIndex).setNationalID((String) aValue);
             }
             case 2 -> {
-//                Manager.costumerList.get(rowIndex).setgroupType((GroupType) aValue);
+                Manager.costumerList.get(rowIndex).setgroupType((GroupType) aValue);
             }
             case 3 -> {
                 Manager.costumerList.get(rowIndex).setAddress((String) aValue);
@@ -176,24 +162,25 @@ public class ShowPeopleRepository implements TableModel {
                 Manager.costumerList.get(rowIndex).setEmail((String) aValue);
             }
             default ->
-                throw new IndexOutOfBoundsException(String.format("Column index not exist. (%d)", columnIndex));
+                System.out.println("no more");
+//                throw new IndexOutOfBoundsException(String.format("Column index not exist. (%d)", columnIndex));
         }
     }
 
     @Override
     public void addTableModelListener(TableModelListener l
     ) {
-     // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void removeTableModelListener(TableModelListener l
     ) {
-      // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public String toString() {
-        return "ShowDocLogicRepository{" + "PeopleDoc="  + '}';
+        return "ShowDocLogicRepository{" + "PeopleDoc=" + '}';
         //return list.toString();
 
     }

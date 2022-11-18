@@ -33,7 +33,8 @@ public class Manager {
 
     public static void addCostumer(Costumer costumer) {
         costumerList.add(costumer);
-        userRepository.writerToFile(costumer);
+    
+        
     }
 
     public static void removeFromList(NormalDoc normalDoc) {
