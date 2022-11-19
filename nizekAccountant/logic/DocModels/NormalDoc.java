@@ -21,10 +21,10 @@ public class NormalDoc {
     public NormalDoc(String cost, String description, boolean isCreditor, DateNizek dateNizek, TimeNizek timeNizek, Costumer costumer) {
         this.cost = cost;
         this.description = description;
-        this.isCreditor = isCreditor;
-        this.dateNizek = dateNizek;
-        this.timeNizek = timeNizek;
-        this.costumer = costumer;
+        this.isCreditor  = isCreditor;
+        this.dateNizek   = dateNizek;
+        this.timeNizek   = timeNizek;
+        this.costumer    = costumer;
         userID = costumer.getID();
         payee = costumer.getName();
 
@@ -104,7 +104,7 @@ public class NormalDoc {
     public String getIsCreditorFilePath() {
         return isCreditorFilePath;
     }
-    public  String convertCreditor(boolean isCreditor) {
+    public String convertCreditor(boolean isCreditor) {
         String result = "Undefined!";
         if (isCreditor) {
             result = "بستانکار";

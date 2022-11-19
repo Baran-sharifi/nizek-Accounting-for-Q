@@ -5,7 +5,7 @@ import nizekAccountant.logic.DocModels.NormalDoc;
 import nizekAccountant.logic.ModelManager.Manager;
 
 public class Converter {
-     public static Double convertToDouble(String text) {
+    public static Double convertToDouble(String text) {
         return Double.parseDouble(text);
     }
 
@@ -19,5 +19,18 @@ public class Converter {
                 checkDoc.getUser()
         ));
         Manager.removeFromList(checkDoc);
+    }
+    public static boolean setBooleanCashed(String text) {
+        if (text.equals("وصول شده")) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean setBooleanCreditor(String text) {
+        if (text.equals("بستانکار")) {
+            return true;
+        }
+        return false;
     }
 }

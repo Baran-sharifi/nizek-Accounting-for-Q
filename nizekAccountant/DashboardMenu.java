@@ -2690,7 +2690,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         String addDiscriptionDoc = discriptionDocAdd.getText();
         if (addDocLogic.canSubmitDoc(addPayeeDoc, addCostDoc, addDiscriptionDoc)) {
             addDocLogic.passDocToDatabase(addPayeeDoc, addCostDoc, addDiscriptionDoc);
-
+                 
         } else {
             JOptionPane.showMessageDialog(addDocPanel, "فیلد  های سند را صحیح وارد کنید",
                     "اطلاعات نامعتبر", JOptionPane.ERROR_MESSAGE);
@@ -2722,7 +2722,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                     phone,
                     emailfieldUser);
             Manager.addCostumer(costumer);
-            userRepository.writeToFile(Manager.costumerList);
+        
             //exchange this with the new method
 //     addUserLogic.passUserTodataBase(userId, userName, phone, addressfieldUser, type);
         } else {
@@ -2768,7 +2768,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_peopleCheckListActionPerformed
 
     private void monthscheckComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthscheckComboActionPerformed
-        String chosenMonthCh = monthscheckCombo.getSelectedItem().toString();
+      //  String chosenMonthCh = monthscheckCombo.getSelectedItem().toString();
     }//GEN-LAST:event_monthscheckComboActionPerformed
 
     private void MonthlyCheckRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthlyCheckRBtnActionPerformed
@@ -2824,7 +2824,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_peopleDocListActionPerformed
 
     private void monthsDocComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthsDocComboActionPerformed
-        String chosenMonth = monthsDocCombo.getSelectedItem().toString();
+     //   String chosenMonth = monthsDocCombo.getSelectedItem().toString();
     }//GEN-LAST:event_monthsDocComboActionPerformed
 
     private void MonthlyDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthlyDocActionPerformed

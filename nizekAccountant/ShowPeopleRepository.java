@@ -111,16 +111,12 @@ public class ShowPeopleRepository implements TableModel {
         switch (columnIndex) {
             case 0 -> {
                 return Manager.costumerList.get(rowIndex).getName();
-                //return names.get( rowIndex);
             }
             case 1 -> {
-                return Manager.costumerList.get(rowIndex).getNationalID();
-//            return ids.get(rowIndex);    
+                return Manager.costumerList.get(rowIndex).getNationalID();   
             }
             case 2 -> {
                 return Manager.costumerList.get(rowIndex).getGroupType();
-
-                //  return groups.get(rowIndex);
             }
             case 3 -> {
                return Manager.costumerList.get(rowIndex).getAddress();

@@ -15,9 +15,9 @@ public class AddDocLogic {
     public AddDocLogic() {
     }
 
-    public String[] passDocToDatabase(String payee, String cost, String discripton) {
+    public void passDocToDatabase(String payee, String cost, String discripton) {
         //gets this from logic
-        return null;
+     
     }
 
     void groupedSubmit(JButton btn) {

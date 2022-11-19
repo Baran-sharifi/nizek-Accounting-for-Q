@@ -87,34 +87,22 @@ public class ShowCheckRepository implements TableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0 -> {
-                List<String> names;
-                names = userRepository.readColumnWholeFile(0, new File(Manager.checkDocList.get(rowIndex).getFilePath()));
-                return names.get(rowIndex);
+                return Manager.costumerList.get(rowIndex).getName();
             }
             case 1 -> {
-                List<String> costs;
-                costs = userRepository.readColumnWholeFile(1, new File(Manager.checkDocList.get(rowIndex).getFilePath()));
-                return costs.get(rowIndex);
+               return Manager.checkDocList.get(rowIndex).getCost();
             }
             case 2 -> {
-                List<String> statues;
-                statues = userRepository.readColumnWholeFile(2, new File(Manager.checkDocList.get(rowIndex).getFilePath()));
-                return CheckDoc.statusIsCashed(statues.get(rowIndex));
+                return Manager.checkDocList.get(rowIndex).convertCashed(isCashedd());
             }
             case 3 -> {
-                List<String> dates;
-                dates = userRepository.readColumnWholeFile(3, new File(Manager.checkDocList.get(rowIndex).getFilePath()));
-                return ConverterTime.convertToPersian(dates.get(rowIndex));
+                return Manager.checkDocList.get(rowIndex).getDate();
             }
             case 4 -> {
-                List<String> times;
-                times = userRepository.readColumnWholeFile(4, new File(Manager.checkDocList.get(rowIndex).getFilePath()));
-                return times.get(rowIndex);
+                return Manager.checkDocList.get(rowIndex).getTime();
             }
-            case 5 -> { //fix this , this is discription
-                 List<String> descriptions;
-                descriptions = userRepository.readColumnWholeFile(5, new File(Manager.checkDocList.get(rowIndex).getFilePath()));
-                return descriptions.get(rowIndex);
+            case 5 -> {
+                return Manager.checkDocList.get(rowIndex).getDescription();
             }
             default ->
                 throw new IndexOutOfBoundsException(String.format("Column index not exist. (%d)", columnIndex));

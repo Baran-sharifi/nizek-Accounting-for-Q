@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class ConverterTime {
-    public static String convertToGregorian(DateNizek dateNizek) {
+   public static String convertToGregorian(DateNizek dateNizek) {
         DateConverter dateConverter = new DateConverter();
         LocalDate localDate = dateConverter.jalaliToGregorian(dateNizek.getYear(), dateNizek.getMonth(), dateNizek.getDay());
         return localDate.toString();
@@ -26,6 +26,14 @@ public class ConverterTime {
                 Integer.parseInt(month),
                 Integer.parseInt(day));
         return jalaliDate2.toString();
+    }
+    public static DateNizek convertToPersianNeeded(String day, String month, String year) {
+        DateConverter dateConverter = new DateConverter();
+        JalaliDate jalaliDate2 = dateConverter.gregorianToJalali(
+                Integer.parseInt(year),
+                Integer.parseInt(month),
+                Integer.parseInt(day));
+        return new DateNizek(jalaliDate2.getDay(), jalaliDate2.getMonthPersian(), jalaliDate2.getYear());
     }
     public static double findDifferencesInDays(String inputDueDate) {
         double differenceInTime = 0;
