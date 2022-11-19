@@ -47,13 +47,12 @@ public class DashboardMenu extends javax.swing.JFrame {
         landPage(dashboard);
         disableFilter();
 
-
         for (Costumer item : Manager.costumerList) {
             payeesComboBox.addItem(item.getName());
         }
         UserRepository userRepository = new UserRepository();
         userRepository.readAndAddCostumer(new File("C:\\csvProject\\costumerFile.csv"));
-        
+
 
         /*
         Manager.addCostumer(new Costumer(
@@ -265,7 +264,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         daily = new javax.swing.JRadioButton();
         weeklyDoc = new javax.swing.JRadioButton();
         MonthlyDoc = new javax.swing.JRadioButton();
-        monthsDocList = new javax.swing.JComboBox<>();
+        monthsDocCombo = new javax.swing.JComboBox<>();
         peopleDocList = new javax.swing.JComboBox<>();
         costLabel = new javax.swing.JLabel();
         CostDocList = new javax.swing.JComboBox<>();
@@ -349,6 +348,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         backToLogin = new javax.swing.JButton();
         dashboardBtnshowCheck1 = new javax.swing.JButton();
         showPeople = new javax.swing.JButton();
+        dashboardBtnshowDoc1 = new javax.swing.JButton();
         showCheckpanel = new javax.swing.JPanel();
         payeeLabelCheck = new javax.swing.JLabel();
         ShowChecksbtn = new javax.swing.JButton();
@@ -373,7 +373,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         DRangeChecksYear1 = new javax.swing.JTextField();
-        DRangeDocsMonth3 = new javax.swing.JTextField();
+        DRangeDocsDay3 = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
@@ -393,6 +393,12 @@ public class DashboardMenu extends javax.swing.JFrame {
         peopleTable = new javax.swing.JTable();
         jLabel52 = new javax.swing.JLabel();
         backshowCheck2 = new javax.swing.JButton();
+        tarazName = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        backshowCheck3 = new javax.swing.JButton();
+        chart = new javax.swing.JPanel();
+        backshowCheck4 = new javax.swing.JButton();
 
         jFrame1.setTitle("checkFrame");
 
@@ -920,11 +926,11 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
-        monthsDocList.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
-        monthsDocList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد ", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن ", "اسفند" }));
-        monthsDocList.addActionListener(new java.awt.event.ActionListener() {
+        monthsDocCombo.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
+        monthsDocCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد ", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن ", "اسفند" }));
+        monthsDocCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                monthsDocListActionPerformed(evt);
+                monthsDocComboActionPerformed(evt);
             }
         });
 
@@ -984,6 +990,18 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("بازه ی زمانی مورد نظر را وارد کنید");
 
+        DRangeDocsMonth.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsMonth.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        DRangeDocsDay.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsDay.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        DRangeDocsmonth.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsmonth.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ماه", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        DRangeDocsDay2.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsDay2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+
         jLabel8.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("از تاریخ");
@@ -1008,6 +1026,12 @@ public class DashboardMenu extends javax.swing.JFrame {
         jLabel51.setForeground(new java.awt.Color(255, 255, 255));
         jLabel51.setText("/");
 
+        DRangeDocsYear3.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsYear3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+
+        DRangeDocsYear4.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsYear4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "سال", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+
         javax.swing.GroupLayout showDocPanelLayout = new javax.swing.GroupLayout(showDocPanel);
         showDocPanel.setLayout(showDocPanelLayout);
         showDocPanelLayout.setHorizontalGroup(
@@ -1029,7 +1053,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(payeeDocRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(showDocPanelLayout.createSequentialGroup()
-                                .addComponent(monthsDocList, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(monthsDocCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(costDocRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1107,7 +1131,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(costDocRBtn)
-                            .addComponent(monthsDocList, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(monthsDocCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(34, 34, 34)
                 .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(payeeLabel)
@@ -1140,7 +1164,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addGroup(showDocPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ShowDocsbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(backshowDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         addDocPanel.setBackground(new java.awt.Color(153, 153, 153));
@@ -1716,6 +1740,15 @@ public class DashboardMenu extends javax.swing.JFrame {
             }
         });
 
+        dashboardBtnshowDoc1.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        dashboardBtnshowDoc1.setText("نمودار بدهکاری");
+        dashboardBtnshowDoc1.setPreferredSize(new java.awt.Dimension(103, 26));
+        dashboardBtnshowDoc1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dashboardBtnshowDoc1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout dashboardLayout = new javax.swing.GroupLayout(dashboard);
         dashboard.setLayout(dashboardLayout);
         dashboardLayout.setHorizontalGroup(
@@ -1731,22 +1764,24 @@ public class DashboardMenu extends javax.swing.JFrame {
                             .addComponent(dashboardBtnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(addUserBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(dashboardBtnaddDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(6, 6, 6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(dashboardLayout.createSequentialGroup()
-                                .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(dashboardLayout.createSequentialGroup()
                                         .addComponent(dashboardBtnshowCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(dashboardBtnshowCheck1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(dashboardLayout.createSequentialGroup()
-                                        .addComponent(tarazBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(showPeople, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(showPeople, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(tarazBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 348, Short.MAX_VALUE)
                                 .addComponent(dashboardlabel))
                             .addGroup(dashboardLayout.createSequentialGroup()
                                 .addComponent(dashboardBtnshowDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dashboardBtnshowDoc1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))))
         );
         dashboardLayout.setVerticalGroup(
@@ -1770,7 +1805,8 @@ public class DashboardMenu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(dashboardBtnaddDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dashboardBtnshowDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(dashboardBtnshowDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dashboardBtnshowDoc1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(backToLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
@@ -1922,8 +1958,8 @@ public class DashboardMenu extends javax.swing.JFrame {
         DRangeChecksYear1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         DRangeChecksYear1.setCaretColor(new java.awt.Color(255, 255, 255));
 
-        DRangeDocsMonth3.setBackground(new java.awt.Color(102, 102, 102));
-        DRangeDocsMonth3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        DRangeDocsDay3.setBackground(new java.awt.Color(102, 102, 102));
+        DRangeDocsDay3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "روز", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(255, 255, 255));
@@ -1949,23 +1985,18 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(showCheckpanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(costCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(payeeCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(showCheckpanelLayout.createSequentialGroup()
-                                .addComponent(monthscheckCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(costCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(showCheckpanelLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(payeeCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(showCheckpanelLayout.createSequentialGroup()
-                                        .addComponent(MonthlyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(weeklyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(dailyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(TimeCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(MonthlyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(weeklyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dailyCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TimeCheckRBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(showCheckpanelLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1986,42 +2017,46 @@ public class DashboardMenu extends javax.swing.JFrame {
                                 .addComponent(peopleCheckList, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(40, 40, 40))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(showCheckpanelLayout.createSequentialGroup()
+                        .addComponent(backshowDoc1)
+                        .addGap(1, 1, 1))
+                    .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(monthscheckCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(showCheckpanelLayout.createSequentialGroup()
+                            .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(DRangeChecksYear, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DRangeDocsYear2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel45)
+                                .addComponent(jLabel47))
+                            .addGap(11, 11, 11)
+                            .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(showCheckpanelLayout.createSequentialGroup()
+                                    .addComponent(DRangeDocsMonth2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jLabel46)
+                                    .addGap(9, 9, 9)
+                                    .addComponent(DRangeDocsDay3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(showCheckpanelLayout.createSequentialGroup()
+                                    .addComponent(DRangeChecksMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jLabel38)
+                                    .addGap(9, 9, 9)
+                                    .addComponent(DRangeChecksYear1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(18, 18, 18)
+                            .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel28)
+                                .addComponent(jLabel35)))))
                 .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(showCheckpanelLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(DRangeChecksYear, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DRangeDocsYear2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel45)
-                            .addComponent(jLabel47))
-                        .addGap(17, 17, 17)
-                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(showCheckpanelLayout.createSequentialGroup()
-                                .addComponent(DRangeDocsMonth2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel46)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(DRangeDocsMonth3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(showCheckpanelLayout.createSequentialGroup()
-                                .addComponent(DRangeChecksMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(9, 9, 9)
-                                .addComponent(jLabel38)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(DRangeChecksYear1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel35))
-                        .addGap(0, 45, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(backshowDoc1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ShowChecksbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(showCheckpanelLayout.createSequentialGroup()
+                        .addComponent(ShowChecksbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         showCheckpanelLayout.setVerticalGroup(
             showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2047,23 +2082,26 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addComponent(costLabelCheck))
                 .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(showCheckpanelLayout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(DRangeChecksYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DRangeChecksMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DRangeChecksYear1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel38)
-                            .addComponent(jLabel45)
+                        .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(showCheckpanelLayout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jLabel28)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(64, 64, 64)
+                                .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(DRangeChecksYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DRangeChecksMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DRangeChecksYear1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel38)
+                                    .addComponent(jLabel45))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showCheckpanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel28)
+                                .addGap(9, 9, 9)))
                         .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(showCheckpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(DRangeDocsYear2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(DRangeDocsMonth2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(DRangeDocsMonth3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DRangeDocsDay3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel46)
                                 .addComponent(jLabel47)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -2260,6 +2298,75 @@ public class DashboardMenu extends javax.swing.JFrame {
                 .addComponent(backshowCheck2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "طرف حساب", "بدهکار", "بستانکار", "تاریخ"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        backshowCheck3.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        backshowCheck3.setText("بازگشت به داشبورد ");
+        backshowCheck3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backshowCheck3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout tarazNameLayout = new javax.swing.GroupLayout(tarazName);
+        tarazName.setLayout(tarazNameLayout);
+        tarazNameLayout.setHorizontalGroup(
+            tarazNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tarazNameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(tarazNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 597, Short.MAX_VALUE)
+                    .addGroup(tarazNameLayout.createSequentialGroup()
+                        .addComponent(backshowCheck3)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        tarazNameLayout.setVerticalGroup(
+            tarazNameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tarazNameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(backshowCheck3)
+                .addContainerGap())
+        );
+
+        backshowCheck4.setFont(new java.awt.Font("B Roya", 1, 18)); // NOI18N
+        backshowCheck4.setText("بازگشت به داشبورد ");
+        backshowCheck4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backshowCheck4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout chartLayout = new javax.swing.GroupLayout(chart);
+        chart.setLayout(chartLayout);
+        chartLayout.setHorizontalGroup(
+            chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chartLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(backshowCheck4)
+                .addContainerGap(483, Short.MAX_VALUE))
+        );
+        chartLayout.setVerticalGroup(
+            chartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, chartLayout.createSequentialGroup()
+                .addContainerGap(551, Short.MAX_VALUE)
+                .addComponent(backshowCheck4)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -2319,6 +2426,16 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addGap(0, 157, Short.MAX_VALUE)
                     .addComponent(peopleReports, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 157, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(tarazName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(chart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2381,6 +2498,16 @@ public class DashboardMenu extends javax.swing.JFrame {
                     .addGap(0, 95, Short.MAX_VALUE)
                     .addComponent(peopleReports, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 95, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(tarazName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(chart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         getAccessibleContext().setAccessibleName("frameCheck");
@@ -2540,7 +2667,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     private void registerChangeCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerChangeCheckActionPerformed
 
         for (CheckDoc check : Manager.checkDocList) {
-            if (check.payee.equals(payee3.getText())&&check.cost.equals(payee3Cost.getText())) {
+            if (check.payee.equals(payee3.getText()) && check.cost.equals(payee3Cost.getText())) {
                 check.isCashed = isCreditorToggle.isSelected();
             }
         }
@@ -2595,8 +2722,8 @@ public class DashboardMenu extends javax.swing.JFrame {
                     phone,
                     emailfieldUser);
             Manager.addCostumer(costumer);
-                userRepository.writeToFile(Manager.costumerList);
-           //exchange this with the new method
+            userRepository.writeToFile(Manager.costumerList);
+            //exchange this with the new method
 //     addUserLogic.passUserTodataBase(userId, userName, phone, addressfieldUser, type);
         } else {
             JOptionPane.showMessageDialog(addDocPanel, "فیلد  های ورودی را صحیح وارد کنید",
@@ -2662,7 +2789,20 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     private void ShowChecksbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowChecksbtnActionPerformed
         landPage(checksReport);
-       int selectedMonth= monthscheckCombo.getSelectedIndex();
+        int selectedMonth = monthscheckCombo.getSelectedIndex();//the month
+
+        if (TimeCheckRBtn.isSelected()) {
+            if (MonthlyCheckRBtn.isSelected()) {
+                String CheckfilterDfrom = DRangeChecksYear.getText();
+            } else {
+                String CheckfilterMfrom = DRangeChecksMonth.getText();
+                String CheckfilterYfrom = DRangeChecksYear1.getText();
+
+                String CheckfilterDTo = DRangeDocsDay3.getText();
+                String CheckfilterMTo = DRangeDocsMonth2.getText();
+                String CheckfilterYTo = DRangeDocsYear2.getText();
+            }
+        }
     }//GEN-LAST:event_ShowChecksbtnActionPerformed
 
     private void costDocRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costDocRBtnActionPerformed
@@ -2683,9 +2823,9 @@ public class DashboardMenu extends javax.swing.JFrame {
     private void peopleDocListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peopleDocListActionPerformed
     }//GEN-LAST:event_peopleDocListActionPerformed
 
-    private void monthsDocListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthsDocListActionPerformed
-        String chosenMonth = monthsDocList.getSelectedItem().toString();
-    }//GEN-LAST:event_monthsDocListActionPerformed
+    private void monthsDocComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthsDocComboActionPerformed
+        String chosenMonth = monthsDocCombo.getSelectedItem().toString();
+    }//GEN-LAST:event_monthsDocComboActionPerformed
 
     private void MonthlyDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthlyDocActionPerformed
         filterVisibelity(MonthlyDoc);
@@ -2703,11 +2843,23 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     private void ShowDocsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowDocsbtnActionPerformed
         landPage(docsReport);
-        String filterDateRange = DRangeDocsDay.getText();
+        if (TimeDocRBtn.isSelected()) {
+            if (MonthlyDoc.isSelected()) {
+                int selectedMonth1 = monthsDocCombo.getSelectedIndex();
+            } else {
+                String filterDfrom = DRangeDocsDay.getText();
+                String filterMfrom = DRangeDocsMonth.getText();
+                String filterYfrom = DRangeDocsYear3.getText();
+
+                String filterDTo = DRangeDocsDay2.getText();
+                String filterMTo = DRangeDocsmonth.getText();
+                String filterYTo = DRangeDocsYear4.getText();
+            }
+        }
     }//GEN-LAST:event_ShowDocsbtnActionPerformed
 
     private void tarazBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarazBtnActionPerformed
-        // TODO add your handling code here:
+        landPage(tarazName);
     }//GEN-LAST:event_tarazBtnActionPerformed
 
     private void backToLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToLoginActionPerformed
@@ -2771,6 +2923,18 @@ public class DashboardMenu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_isCreditorToggleActionPerformed
 
+    private void dashboardBtnshowDoc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardBtnshowDoc1ActionPerformed
+        landPage(chart);
+    }//GEN-LAST:event_dashboardBtnshowDoc1ActionPerformed
+
+    private void backshowCheck3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backshowCheck3ActionPerformed
+        landPage(dashboard);
+    }//GEN-LAST:event_backshowCheck3ActionPerformed
+
+    private void backshowCheck4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backshowCheck4ActionPerformed
+       landPage(dashboard);
+    }//GEN-LAST:event_backshowCheck4ActionPerformed
+
     public void filterVisibelity(JRadioButton Rbtn) {
         costCheckList.setEnabled(costCheckRBtn.isSelected());
         peopleCheckList.setEnabled(payeeCheckRBtn.isSelected());
@@ -2789,12 +2953,12 @@ public class DashboardMenu extends javax.swing.JFrame {
         daily.setEnabled(TimeDocRBtn.isSelected());
         weeklyDoc.setEnabled(TimeDocRBtn.isSelected());
         MonthlyDoc.setEnabled(TimeDocRBtn.isSelected());
-        monthsDocList.setEnabled(MonthlyDoc.isSelected());
+        monthsDocCombo.setEnabled(MonthlyDoc.isSelected());
         // monthsDocList.setEnabled(MonthlyDoc.isSelected() && TimeCheckRBtn.isSelected());
         //  monthscheckList.setEnabled(TimeCheckRBtn.isSelected());
         //==============conflict of monthComboBox enablity ========================
         if (payeeDocRBtn.isSelected() || costDocRBtn.isSelected()) {
-            monthsDocList.setEnabled(false);
+            monthsDocCombo.setEnabled(false);
         }
         if (payeeCheckRBtn.isSelected() || costCheckRBtn.isSelected()) {
             monthscheckCombo.setEnabled(false);
@@ -2803,7 +2967,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     }
 
     public void disableFilter() {
-        monthsDocList.setEnabled(TimeDocRBtn.isSelected() && MonthlyDoc.isSelected());
+        monthsDocCombo.setEnabled(TimeDocRBtn.isSelected() && MonthlyDoc.isSelected());
         weeklyCheckRBtn.setEnabled(false);
         dailyCheckRBtn.setEnabled(false);
         MonthlyCheckRBtn.setEnabled(false);
@@ -2821,6 +2985,8 @@ public class DashboardMenu extends javax.swing.JFrame {
     public void landPage(JPanel panel) {
 //        Monthscheckshow.setVisible(false);
         //  addingDocPanel.setVisible(panel==addingDocPanel);
+        chart.setVisible(panel == chart);
+        tarazName.setVisible(panel == tarazName);
         LoginPanel.setVisible(panel == LoginPanel);
         dashboard.setVisible(panel == dashboard);
         addcheckPanel.setVisible(panel == addcheckPanel);
@@ -2828,7 +2994,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         showDocPanel.setVisible(panel == showDocPanel);
         addDocPanel.setVisible(panel == addDocPanel);
         addPeoplePanel.setVisible(panel == addPeoplePanel);
-       
+
         addCategoryPanel.setVisible(panel == addCategoryPanel);
         showCheckpanel.setVisible(panel == showCheckpanel);
         checksReport.setVisible(panel == checksReport);
@@ -2879,9 +3045,9 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JTextField DRangeChecksYear1;
     private javax.swing.JTextField DRangeDocsDay;
     private javax.swing.JTextField DRangeDocsDay2;
+    private javax.swing.JTextField DRangeDocsDay3;
     private javax.swing.JTextField DRangeDocsMonth;
     private javax.swing.JTextField DRangeDocsMonth2;
-    private javax.swing.JTextField DRangeDocsMonth3;
     private javax.swing.JTextField DRangeDocsYear2;
     private javax.swing.JTextField DRangeDocsYear3;
     private javax.swing.JTextField DRangeDocsYear4;
@@ -2917,6 +3083,8 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JButton backshowCheck;
     private javax.swing.JButton backshowCheck1;
     private javax.swing.JButton backshowCheck2;
+    private javax.swing.JButton backshowCheck3;
+    private javax.swing.JButton backshowCheck4;
     private javax.swing.JButton backshowDoc;
     private javax.swing.JButton backshowDoc1;
     private javax.swing.JButton btnconfirm;
@@ -2928,6 +3096,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JTextField categoryFieldName;
     private javax.swing.JTextField categoryFieldPhone;
     private javax.swing.JTextField categoryFieldَAddress;
+    private javax.swing.JPanel chart;
     protected javax.swing.JPanel checksReport;
     private javax.swing.JTable checksTable;
     private javax.swing.JRadioButton clientBtn;
@@ -2949,6 +3118,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JButton dashboardBtnshowCheck;
     private javax.swing.JButton dashboardBtnshowCheck1;
     private javax.swing.JButton dashboardBtnshowDoc;
+    private javax.swing.JButton dashboardBtnshowDoc1;
     private javax.swing.JLabel dashboardlabel;
     private javax.swing.JRadioButton debtorBtn;
     private javax.swing.JScrollPane discriptionCheck;
@@ -3021,10 +3191,12 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable jTable1;
     private javax.swing.JPanel loginPanel;
-    private javax.swing.JComboBox<String> monthsDocList;
+    private javax.swing.JComboBox<String> monthsDocCombo;
     private javax.swing.JComboBox<String> monthscheckCombo;
     private javax.swing.JRadioButton partnerBtn;
     private javax.swing.JButton passWordRecovery;
@@ -3053,6 +3225,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     private javax.swing.JPanel stateChangePanel;
     private javax.swing.JButton submitDoc;
     private javax.swing.JButton tarazBtn;
+    private javax.swing.JPanel tarazName;
     private javax.swing.ButtonGroup timeFilter;
     private javax.swing.JRadioButton weeklyCheckRBtn;
     private javax.swing.JRadioButton weeklyDoc;
