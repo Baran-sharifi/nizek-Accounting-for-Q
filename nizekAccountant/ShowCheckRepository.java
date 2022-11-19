@@ -93,7 +93,7 @@ public class ShowCheckRepository implements TableModel {
                return Manager.checkDocList.get(rowIndex).getCost();
             }
             case 2 -> {
-                return Manager.checkDocList.get(rowIndex).convertCashed(isCashedd());
+                return Manager.checkDocList.get(rowIndex).convertCashed(Manager.checkDocList.get(rowIndex).isCashedd());
             }
             case 3 -> {
                 return Manager.checkDocList.get(rowIndex).getDate();

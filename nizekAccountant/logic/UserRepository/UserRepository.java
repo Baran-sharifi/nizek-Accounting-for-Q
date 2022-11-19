@@ -15,8 +15,8 @@ import nizekAccountant.logic.Login.GroupType;
 import nizekAccountant.logic.ModelManager.Manager;
 
 public class UserRepository implements Storeable {
-    
-     static String costNormal;
+
+    static String costNormal;
     static String costCheck;
     static boolean isEmailUser;
     static String tempUser;
@@ -25,11 +25,7 @@ public class UserRepository implements Storeable {
     static String tempAdmin;
     static boolean isPasswordUser;
 
-    
-    
-    
-
- @Override
+    @Override
     public String readFile(CheckDoc checkDoc, int id) {
         String name;
         String cost;
@@ -57,6 +53,7 @@ public class UserRepository implements Storeable {
         }
         return tempCHECk;
     }
+
     //$$$$$$$$$$$$$$$$$---------$$$$$$$$$$ FINAL $$$$$$$$$$---------$$$$$$$$$$$$$$$$$
     @Override
     public String readFile(NormalDoc normalDoc, int id) {
@@ -88,8 +85,9 @@ public class UserRepository implements Storeable {
         }
         return tempNORMAL;
     }
+
     public String readCostumerBasedOnNationalID(List<Costumer> costumerList, String inputNationalID) {
-        for (Costumer costumer: costumerList) {
+        for (Costumer costumer : costumerList) {
             if (inputNationalID.equals(costumer.getNationalID())) {
                 return String.format("%s, %s, %s, %s, %s, %s",
                         costumer.getName(),
@@ -102,8 +100,9 @@ public class UserRepository implements Storeable {
         }
         return "Not Found";
     }
+
     public String readCostumerBasedOnName(List<Costumer> costumerList, String name) {
-        for (Costumer costumer: costumerList) {
+        for (Costumer costumer : costumerList) {
             if (name.equals(costumer.getName())) {
                 return String.format("%s, %s, %s, %s, %s, %s",
                         costumer.getName(),
@@ -116,27 +115,30 @@ public class UserRepository implements Storeable {
         }
         return "Not Found";
     }
+
     public List<NormalDoc> readBasedOnDay(List<NormalDoc> normalDocList, int day, int month, int year) {
         List<NormalDoc> filteredList = new ArrayList<>();
-        for (NormalDoc object: normalDocList) {
+        for (NormalDoc object : normalDocList) {
             if (day == object.getDate().getDay() && month == object.getDate().getMonth() && year == object.getDate().getYear()) {
                 filteredList.add(object);
             }
         }
         return filteredList;
     }
-    public List<NormalDoc> readBasedOnMonth(List<NormalDoc> normalDocList,  int month, int year) {
+
+    public List<NormalDoc> readBasedOnMonth(List<NormalDoc> normalDocList, int month, int year) {
         List<NormalDoc> filteredList = new ArrayList<>();
-        for (NormalDoc object: normalDocList) {
+        for (NormalDoc object : normalDocList) {
             if (month == object.getDate().getMonth() && year == object.getDate().getYear()) {
                 filteredList.add(object);
             }
         }
         return filteredList;
     }
-    public List<NormalDoc> readBasedOnYear(List<NormalDoc> normalDocList,int year) {
+
+    public List<NormalDoc> readBasedOnYear(List<NormalDoc> normalDocList, int year) {
         List<NormalDoc> filteredList = new ArrayList<>();
-        for (NormalDoc object: normalDocList) {
+        for (NormalDoc object : normalDocList) {
             if (year == object.getDate().getYear()) {
                 filteredList.add(object);
             }
@@ -146,48 +148,52 @@ public class UserRepository implements Storeable {
 
     public List<NormalDoc> readFilterBasedOnCostNormal(int beforeCost, int afterCost) {
         List<NormalDoc> filteredList = new ArrayList<>();
-        for (NormalDoc object: Manager.normalDocList) {
+        for (NormalDoc object : Manager.normalDocList) {
             if (Integer.parseInt(object.getCost()) >= beforeCost && Integer.parseInt(object.getCost()) <= afterCost) {
                 filteredList.add(object);
             }
         }
-        return  filteredList;
+        return filteredList;
     }
+
     public List<CheckDoc> readBasedOnDayCheck(List<CheckDoc> checkDocList, int day, int month, int year) {
         List<CheckDoc> filteredList = new ArrayList<>();
-        for (CheckDoc object: checkDocList) {
+        for (CheckDoc object : checkDocList) {
             if (day == object.getDate().getDay() && month == object.getDate().getMonth() && year == object.getDate().getYear()) {
                 filteredList.add(object);
             }
         }
         return filteredList;
     }
-    public List<CheckDoc> readBasedOnMonthCheck(List<CheckDoc> checkDocList,  int month, int year) {
+
+    public List<CheckDoc> readBasedOnMonthCheck(List<CheckDoc> checkDocList, int month, int year) {
         List<CheckDoc> filteredList = new ArrayList<>();
-        for (CheckDoc object: checkDocList) {
+        for (CheckDoc object : checkDocList) {
             if (month == object.getDate().getMonth() && year == object.getDate().getYear()) {
                 filteredList.add(object);
             }
         }
         return filteredList;
     }
-    public List<CheckDoc> readBasedOnYearCheck(List<CheckDoc> checkDocList,int year) {
+
+    public List<CheckDoc> readBasedOnYearCheck(List<CheckDoc> checkDocList, int year) {
         List<CheckDoc> filteredList = new ArrayList<>();
-        for (CheckDoc object: checkDocList) {
+        for (CheckDoc object : checkDocList) {
             if (year == object.getDate().getYear()) {
                 filteredList.add(object);
             }
         }
         return filteredList;
     }
+
     public List<CheckDoc> readFilterBasedOnCostCheck(int beforeCost, int afterCost) {
         List<CheckDoc> filteredList = new ArrayList<>();
-        for (CheckDoc object: Manager.checkDocList) {
+        for (CheckDoc object : Manager.checkDocList) {
             if (Integer.parseInt(object.getCost()) >= beforeCost && Integer.parseInt(object.getCost()) <= afterCost) {
                 filteredList.add(object);
             }
         }
-        return  filteredList;
+        return filteredList;
     }
 
     @Override
@@ -221,6 +227,7 @@ public class UserRepository implements Storeable {
         }
         return tempUser;
     }
+
     @Override
     public String readAdmin(Admin admin) {
         String name;
@@ -240,6 +247,7 @@ public class UserRepository implements Storeable {
         }
         return tempAdmin;
     }
+
     // *************** WRITE METHODS
     @Override
     public void writerToFile(Costumer costumer) {
@@ -261,6 +269,7 @@ public class UserRepository implements Storeable {
             e.printStackTrace();
         }
     }
+
     @Override
     public void writeToFile(NormalDoc normalDoc) {
         try {
@@ -282,6 +291,7 @@ public class UserRepository implements Storeable {
             e.printStackTrace();
         }
     }
+
     public void writeIFCreditorToFile(NormalDoc normalDoc) {
         try {
             if (normalDoc.isCreditor()) {
@@ -323,6 +333,7 @@ public class UserRepository implements Storeable {
             e.printStackTrace();
         }
     }
+
     @Override
     public void writeToFile(CheckDoc checkDoc) {
         try {
@@ -342,13 +353,14 @@ public class UserRepository implements Storeable {
             e.printStackTrace();
         }
     }
+
     public void writeToFileCostumer(List<Costumer> costumerList) {
 
-            try {
-                FileWriter fileWriter = new FileWriter("C:\\csvProject\\costumerFile.csv");
-                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                PrintWriter printWriter = new PrintWriter(bufferedWriter);
-                for (Costumer object: costumerList) {
+        try {
+            FileWriter fileWriter = new FileWriter("C:\\csvProject\\costumerFile.csv");
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            PrintWriter printWriter = new PrintWriter(bufferedWriter);
+            for (Costumer object : costumerList) {
                 printWriter.printf("%s, %s, %s, %s, %s, %s\n",
                         object.getName(),
                         object.getNationalID(),
@@ -357,18 +369,19 @@ public class UserRepository implements Storeable {
                         object.getPhone(),
                         object.getEmail());
             }
-                printWriter.flush();
-                printWriter.close();
+            printWriter.flush();
+            printWriter.close();
         } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            throw new RuntimeException(e);
+        }
     }
+
     public void writeToFileCheckDoc(List<CheckDoc> checkDocList) {
         try {
-            FileWriter fileWriter = new FileWriter("checkFile.csv");
+            FileWriter fileWriter = new FileWriter("C:\\csvProject\\checkFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
-            for (CheckDoc object: checkDocList) {
+            for (CheckDoc object : checkDocList) {
                 printWriter.printf("%s, %s, %s, %s, %s, %s, %d\n",
                         object.getUser().getName(),
                         object.getCost(),
@@ -385,12 +398,13 @@ public class UserRepository implements Storeable {
             e.printStackTrace();
         }
     }
+
     public void writeToFileNormalDoc(List<NormalDoc> normalDocList) {
         try {
-            FileWriter fileWriter = new FileWriter("normalFile.csv");
+            FileWriter fileWriter = new FileWriter("C:\\csvProject\\normalFile.csv");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             PrintWriter printWriter = new PrintWriter(bufferedWriter);
-            for (NormalDoc object: normalDocList) {
+            for (NormalDoc object : normalDocList) {
                 printWriter.printf("%s, %s, %s, %s, %s, %s, %d\n",
                         object.getUser().getName(),
                         object.getCost(),
@@ -407,6 +421,7 @@ public class UserRepository implements Storeable {
             e.printStackTrace();
         }
     }
+
     public void writeIFCashedToFile(CheckDoc checkDoc) {
         try {
             if (checkDoc.isCashedd()) {
@@ -440,6 +455,7 @@ public class UserRepository implements Storeable {
             e.printStackTrace();
         }
     }
+
     ///********** WRITE ADMIN
     @Override
     public void writeToFile(Admin admin) {
@@ -458,6 +474,7 @@ public class UserRepository implements Storeable {
         }
 
     }
+
     // &&&&&&&&&&&&& READ ALL Method &&&&&&&&&&&&&&&
     @Override
     public List<String> readWholeFile(File file) {
@@ -480,48 +497,57 @@ public class UserRepository implements Storeable {
 
         return arraylist;
     }
+
     public void readAndAddCostumer(File file) {
-        List<String> gottenFile = readWholeFile(file);
-        for (String model: gottenFile) {
-            String[] temp = model.split(", ");
-            Manager.addCostumer(new Costumer(
-                    temp[0].substring(1),
-                    temp[1].trim(),
-                    new GroupType(temp[2].trim()),
-                    temp[3].trim(),
-                    temp[4].trim(),
-                    temp[5].trim()
-                    ));
+        if (file.exists()) {
+            List<String> gottenFile = readWholeFile(file);
+            for (String model : gottenFile) {
+                String[] temp = model.split(", ");
+                Manager.addCostumer(new Costumer(
+                        temp[0].substring(1),
+                        temp[1].trim(),
+                        new GroupType(temp[2].trim()),
+                        temp[3].trim(),
+                        temp[4].trim(),
+                        temp[5].trim()
+                ));
+            }
         }
     }
-    public void readAndAddCheckDoc(File file) {   // requires Edit in Date!
-        List<String> gottenFile = readWholeFile(file);
-        for (String model: gottenFile) {
-            String[] temp = model.split(", ");
-            String[] date = temp[4].trim().split("-");
-            String[] time = temp[5].trim().split(":");
-            Manager.addCheckDocument(new CheckDoc(
-                    temp[1].trim(),
-                    temp[2].trim(),
-                    ConverterTime.convertToPersianNeeded(date[2], date[1], date[0]),
-                    new TimeNizek(Integer.parseInt(time[0]), Integer.parseInt(time[1])),
-                    Converter.setBooleanCashed(temp[3]),
-                    Manager.costumerList.get(Integer.parseInt(temp[6].trim().substring(0,1)))));
+
+    public void readAndAddCheckDoc(File file) {
+        if (file.exists()) {
+            List<String> gottenFile = readWholeFile(file);
+            for (String model : gottenFile) {
+                String[] temp = model.split(", ");
+                String[] date = temp[4].trim().split("-");
+                String[] time = temp[5].trim().split(":");
+                Manager.addCheckDocument(new CheckDoc(
+                        temp[1].trim(),
+                        temp[2].trim(),
+                        ConverterTime.convertToPersianNeeded(date[2], date[1], date[0]),
+                        new TimeNizek(Integer.parseInt(time[0]), Integer.parseInt(time[1])),
+                        Converter.setBooleanCashed(temp[3]),
+                        Manager.costumerList.get(Integer.parseInt(temp[6].trim().substring(0, 1)))));
+            }
         }
     }
+
     public void readAndAddNormalDoc(File file) {
-        List<String> gottenFile = readWholeFile(file);
-        for (String model : gottenFile) {
-            String[] temp = model.split(", ");
-            String[] date = temp[4].trim().split("-");
-            String[] time = temp[5].trim().split(":");
-            Manager.addNormalDocument(new NormalDoc(
-                    temp[1].trim(),
-                    temp[2].trim(),
-                    Converter.setBooleanCreditor(temp[3]),
-                    ConverterTime.convertToPersianNeeded(date[2], date[1], date[0]),
-                    new TimeNizek(Integer.parseInt(time[0]), Integer.parseInt(time[1])),
-                    Manager.costumerList.get(Integer.parseInt(temp[6].trim().substring(0, 1)))));
+        if (file.exists()) {
+            List<String> gottenFile = readWholeFile(file);
+            for (String model : gottenFile) {
+                String[] temp = model.split(", ");
+                String[] date = temp[4].trim().split("-");
+                String[] time = temp[5].trim().split(":");
+                Manager.addNormalDocument(new NormalDoc(
+                        temp[1].trim(),
+                        temp[2].trim(),
+                        Converter.setBooleanCreditor(temp[3]),
+                        ConverterTime.convertToPersianNeeded(date[2], date[1], date[0]),
+                        new TimeNizek(Integer.parseInt(time[0]), Integer.parseInt(time[1])),
+                        Manager.costumerList.get(Integer.parseInt(temp[6].trim().substring(0, 1)))));
+            }
         }
     }
 
@@ -550,6 +576,7 @@ public class UserRepository implements Storeable {
         }
         return costNormal;
     }
+
     public String readCostFromFile(CheckDoc checkDoc, int id) {
         String cost;
         try {
@@ -601,6 +628,7 @@ public class UserRepository implements Storeable {
         }
         return isEmailUser && isPasswordUser;
     }
+
     public void removeIdFromDataBase(NormalDoc normalDoc, int deleteLine) { //changed delete line to delete id!
         String tempFileAddress = "temp.csv";
         File oldFile = new File(normalDoc.getFilePath());
@@ -633,6 +661,7 @@ public class UserRepository implements Storeable {
             System.out.println("Couldn't write a new file!" + normalDoc.getFilePath());
         }
     }
+
     public List<String> readColumnWholeFile(int column, File file) {
         String[] data;
         String currentLine;
@@ -649,6 +678,7 @@ public class UserRepository implements Storeable {
         }
         return listColumn;
     }
+
     // Method to Read Date from CHECKDOC
     public List<String> readDateFromCheck(List<CheckDoc> checkDocList) {
 
@@ -660,6 +690,7 @@ public class UserRepository implements Storeable {
         }
         return arrayDate;
     }
+
     public List<Double> readCostFromCheck(List<CheckDoc> checkDocList) {
 
         List<Double> arrayCost = new ArrayList<>();

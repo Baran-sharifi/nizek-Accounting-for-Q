@@ -47,13 +47,17 @@ public class DashboardMenu extends javax.swing.JFrame {
         landPage(dashboard);
         disableFilter();
 
-        for (Costumer item : Manager.costumerList) {
-            payeesComboBox.addItem(item.getName());
-        }
         UserRepository userRepository = new UserRepository();
         userRepository.readAndAddCostumer(new File("C:\\csvProject\\costumerFile.csv"));
+        userRepository.readAndAddCheckDoc(new File("C:\\csvProject\\checkFile.csv"));
+        userRepository.readAndAddNormalDoc(new File("C:\\csvProject\\normalFile.csv"));
+        DefaultComboBoxModel<String> defaultComboBoxModel = new DefaultComboBoxModel<>();
 
-
+        payeesComboBox.setModel(defaultComboBoxModel);
+        for (Costumer item : Manager.costumerList) {
+            defaultComboBoxModel.addElement(item.getName());
+            System.out.println(item.getName());
+        }
         /*
         Manager.addCostumer(new Costumer(
                 "Amir",
@@ -612,7 +616,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         isCashedBtn.setText("وصول شده است");
 
         payeesComboBox.setFont(new java.awt.Font("B Roya", 1, 14)); // NOI18N
-        payeesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "افزودن شخص جدید", " ", " ", " ", " ", " " }));
+        payeesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", " ", " ", " ", " " }));
         payeesComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 payeesComboBoxActionPerformed(evt);
@@ -2690,7 +2694,7 @@ public class DashboardMenu extends javax.swing.JFrame {
         String addDiscriptionDoc = discriptionDocAdd.getText();
         if (addDocLogic.canSubmitDoc(addPayeeDoc, addCostDoc, addDiscriptionDoc)) {
             addDocLogic.passDocToDatabase(addPayeeDoc, addCostDoc, addDiscriptionDoc);
-                 
+
         } else {
             JOptionPane.showMessageDialog(addDocPanel, "فیلد  های سند را صحیح وارد کنید",
                     "اطلاعات نامعتبر", JOptionPane.ERROR_MESSAGE);
@@ -2722,7 +2726,7 @@ public class DashboardMenu extends javax.swing.JFrame {
                     phone,
                     emailfieldUser);
             Manager.addCostumer(costumer);
-        
+
             //exchange this with the new method
 //     addUserLogic.passUserTodataBase(userId, userName, phone, addressfieldUser, type);
         } else {
@@ -2768,7 +2772,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_peopleCheckListActionPerformed
 
     private void monthscheckComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthscheckComboActionPerformed
-      //  String chosenMonthCh = monthscheckCombo.getSelectedItem().toString();
+        //  String chosenMonthCh = monthscheckCombo.getSelectedItem().toString();
     }//GEN-LAST:event_monthscheckComboActionPerformed
 
     private void MonthlyCheckRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthlyCheckRBtnActionPerformed
@@ -2824,7 +2828,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_peopleDocListActionPerformed
 
     private void monthsDocComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthsDocComboActionPerformed
-     //   String chosenMonth = monthsDocCombo.getSelectedItem().toString();
+        //   String chosenMonth = monthsDocCombo.getSelectedItem().toString();
     }//GEN-LAST:event_monthsDocComboActionPerformed
 
     private void MonthlyDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthlyDocActionPerformed
@@ -2932,7 +2936,7 @@ public class DashboardMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_backshowCheck3ActionPerformed
 
     private void backshowCheck4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backshowCheck4ActionPerformed
-       landPage(dashboard);
+        landPage(dashboard);
     }//GEN-LAST:event_backshowCheck4ActionPerformed
 
     public void filterVisibelity(JRadioButton Rbtn) {
