@@ -577,11 +577,11 @@ public class UserRepository implements Storeable {
     }
 
     public void writeToFile(List<Costumer> costumerList) {
-        for (Costumer object : costumerList) {
-            try {
-                FileWriter fileWriter = new FileWriter(object.getFilePath());
+                FileWriter fileWriter = new FileWriter(new File("C:\\csvProject\\costumerFile.csv"));
                 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                 PrintWriter printWriter = new PrintWriter(bufferedWriter);
+                try {
+        for (Costumer object : costumerList) {
                 printWriter.printf("%s, %s, %s, %s, %s, %s\n",
                         object.getName(),
                         object.getNationalID(),
@@ -589,11 +589,13 @@ public class UserRepository implements Storeable {
                         object.getAddress(),
                         object.getPhone(),
                         object.getEmail());
+        }
+               
+            
                 printWriter.flush();
                 printWriter.close();
-            } catch (IOException e) {
+                } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
     }
 }
