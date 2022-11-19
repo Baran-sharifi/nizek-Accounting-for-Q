@@ -23,10 +23,10 @@ public class Converter {
     public static boolean setBooleanCashed(String text) {
         if (text.equals("وصول شده")) {
             return true;
-        }
+        }else{
         return false;
+      }
     }
-
     public static boolean setBooleanCreditor(String text) {
         if (text.equals("بستانکار")) {
             return true;

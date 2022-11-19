@@ -7,11 +7,13 @@ import nizekAccountant.logic.UserRepository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import nizekAccountant.logic.AdminModel.Admin;
 
 public class Manager {
-   public static List<NormalDoc> normalDocList = new ArrayList<>();
+    public static List<NormalDoc> normalDocList = new ArrayList<>();
     public static List<CheckDoc> checkDocList = new ArrayList<>();
     public static List<Costumer> costumerList = new ArrayList<>();
+    public static List<Admin> adminList = new ArrayList<>();
     public static UserRepository userRepository = new UserRepository();
 
     public static void addNormalDocument(NormalDoc normalDoc) {
@@ -28,6 +30,10 @@ public class Manager {
         costumerList.add(costumer);
         userRepository.writeToFileCostumer(Manager.costumerList);
     }
+    public static void addAdmin(Admin admin) {
+        adminList.add(admin);
+        userRepository.writeToFileAdmin();
+    }
 
     public static void removeFromList(NormalDoc normalDoc) {
         normalDocList.remove(normalDoc);
@@ -40,6 +46,4 @@ public class Manager {
     public static void removeFromList(Costumer costumer) {
         costumerList.remove(costumer);
     }
-
-
 }
