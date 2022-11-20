@@ -4,8 +4,8 @@ import nizekAccountant.logic.Date.DateNizek;
 import nizekAccountant.logic.Date.TimeNizek;
 import nizekAccountant.logic.Login.Costumer;
 
-
 public class CheckDoc {
+
     private Costumer costumer;
     public String cost;
     private String description;
@@ -19,7 +19,6 @@ public class CheckDoc {
 
     private final int userID;
 
-
     public CheckDoc(String cost, String description, DateNizek dateNizek, TimeNizek timeNizek, boolean isCashed, Costumer costumer) {
         this.cost = cost;
         this.description = description;
@@ -31,17 +30,19 @@ public class CheckDoc {
         payee = costumer.getName();
         isCashed = false;
     }
+
     public String getPayee() {
-      return this.payee;
+        return this.payee;
     }
-    public  static String statusIsCashed(String checkStatus) {
-      String status = "";
-      if (checkStatus.equals("true")) {
-          status = "وصول شده";
-      } else {
-          status = "وصول نشده";
-      }
-      return status;
+
+    public static String statusIsCashed(String checkStatus) {
+        String status = "";
+        if (checkStatus.equals("true")) {
+            status = "وصول شده";
+        } else {
+            status = "وصول نشده";
+        }
+        return status;
     }
 
     public int getUserID() {
@@ -51,9 +52,6 @@ public class CheckDoc {
     public boolean isCashedd() {
         return isCashed;
     }
-    
-    
-    
 
     public Costumer getUser() {
         return costumer;
@@ -88,13 +86,10 @@ public class CheckDoc {
     }
 
     public String convertCashed(boolean isCashed) {
-        String result ="";
-        if (isCashed) {
-            result = "وصول شده";
-        } else {
-            result = "وصول نشده";
+        if (isCashed == true) {
+            return "وصول شده";
         }
-        return result;
+        return "وصول نشده";
     }
 
     public void setCostumer(Costumer costumer) {
@@ -120,8 +115,6 @@ public class CheckDoc {
     public void setIsCashed(boolean isCashed) {
         this.isCashed = isCashed;
     }
-
-    
 
     @Override
     public String toString() {

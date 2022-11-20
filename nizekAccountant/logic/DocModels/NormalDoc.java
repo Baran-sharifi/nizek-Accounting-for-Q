@@ -75,14 +75,11 @@ public class NormalDoc {
         return description;
     }
 
-    public static String statusIsCreditor(String docStatus) {
-        String status = "";
-        if (docStatus.equals("false")) {
-            status =  "بدهکار";
-        } else {
-        status = "بدهکار";
+    public static String statusIsCreditor(boolean docStatus) {
+        if (docStatus == false) {
+            return "بدهکار";
         }
-        return status;
+       return "بدهکار";
     }
     public boolean isCreditor() {
         return this.isCreditor;

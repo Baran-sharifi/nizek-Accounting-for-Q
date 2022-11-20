@@ -87,7 +87,7 @@ public class ShowCheckRepository implements TableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0 -> {
-                return Manager.costumerList.get(rowIndex).getName();
+                return Manager.checkDocList.get(rowIndex).getUser().getName();
             }
             case 1 -> {
                return Manager.checkDocList.get(rowIndex).getCost();

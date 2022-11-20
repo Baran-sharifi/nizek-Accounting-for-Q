@@ -83,7 +83,7 @@ public class ShowDocRepository implements TableModel {
 
         switch (columnIndex) {
             case 0 -> {
-                 return Manager.costumerList.get(rowIndex).getName();
+                 return Manager.normalDocList.get(rowIndex).getUser().getName();
             }
             case 1 -> {
                  return Manager.normalDocList.get(rowIndex).getCost();
